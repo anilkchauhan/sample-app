@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types'
 import Header from './Header';
+import subHeading from '../HOC/subHeading'
 
 import randomList from '../library/utils/randomList'
+import {Advertisement as config} from '../configs/constants'
 
+const defaultProps = {
+    'limit': config.LIMIT,
+    'interval': config.INTERVAL,
+}
+
+let SubHeader = subHeading(Header)
 
 class Advertisement extends Component {
     constructor(props) {
@@ -32,10 +40,10 @@ class Advertisement extends Component {
         console.log(this.state)
         let { title, columns, datas, limit } = this.props;
         let results = randomList(datas, limit)
-
+        
         return (
             <div>
-                <Header title={title} />
+                {title && <SubHeader>{title}</SubHeader>}
                 <table border="1" width="100%">
                     <tbody>
                     {
@@ -57,5 +65,7 @@ class Advertisement extends Component {
         );
     }
 }
+
+Advertisement.defaultProps = defaultProps
 
 export default Advertisement;

@@ -6,19 +6,18 @@ let defaultProps = {
 }
 
 let propTypes = {
-    as: PropTypes.string,
-    title: PropTypes.string
+    as: PropTypes.string
 }
 
 class Header extends Component {
 
     render() {
-        let {title, as} = this.props
+        let {children, as} = this.props
 
         let Type = as
         return (
             <Type>
-                {title}
+                {children}
             </Type>
         )
     }
