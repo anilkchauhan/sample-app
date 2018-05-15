@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import Header from './Header';
-import subHeading from '../HOC/subHeading'
+import Header from '../Header';
+import subHeading from '../../HOC/subHeading'
 
-import randomList from '../library/utils/randomList'
-import {Advertisement as config} from '../configs/constants'
+import randomList from '../../library/utils/randomList'
+import {Advertisement as config} from '../../configs/constants'
 
 const defaultProps = {
     'limit': config.LIMIT,
