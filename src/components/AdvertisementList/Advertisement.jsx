@@ -8,6 +8,7 @@ import {Advertisement as config} from '../../configs/constants'
 const defaultProps = {
     'limit': config.LIMIT,
     'interval': config.INTERVAL,
+    dispHeader: true
 }
 
 let SubHeader = subHeading(Header)
@@ -19,30 +20,52 @@ class Advertisement extends Component {
         this.state = {
             random: Math.random()
         }
+
+        console.log('Adv: constructor')
     }
 
     componentDidMount() {
-        let { interval } = this.props;
+        /*let { interval } = this.props;
 
         this.tick = setInterval(() => {
             this.setState({
                 random: Math.random
             })
-        }, interval)
+        }, interval)*/
+
+        console.log('Adv: componentDidMount')
+    }
+
+    shouldComponentUpdate() {
+        console.log('Adv: shouldComponentUpdate')
+        return true
+    }
+
+    static getHelp() {
+        console.log(';okkkkkkkk')
+    }
+
+    static getDerivedStateFromProps() {
+        console.log('Adv: getDerivedStateFromProps')
+        Advertisement.getHelp()
+        return null
+    }
+
+    componentDidUpdate() {
+        console.log('Adv: componentDidUpdate')
     }
 
     componentWillUnmount() {
-        //this.tick
+        clearInterval(this.tick)
     }
 
     render() {
-        console.log(this.state)
-        let { title, columns, datas, limit } = this.props;
+        console.log('Adv: render')
+        let { title, columns, datas, limit, dispHeader } = this.props;
         let results = randomList(datas, limit)
-        
         return (
             <div>
-                {title && <SubHeader>{title}</SubHeader>}
+                {dispHeader && title && <SubHeader>{title}</SubHeader>}
                 <table border="1" width="100%">
                     <tbody>
                     {

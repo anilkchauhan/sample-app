@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 import AdvertisementList from './components/AdvertisementList'
-import Header from './components/Header'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header>Let's all welcome Props and States</Header>
+        <h1>Let's all welcome Props and States</h1>
         <AdvertisementList />
       </div>
     );

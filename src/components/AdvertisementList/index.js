@@ -13,6 +13,8 @@ class AdvertisementList extends Component {
             limit: config.LIMIT,
             dispHeader: true
         }
+
+        console.log('Adv LIST: constructor')
     }
 
     handleOnLimitChange = (event) => {
@@ -27,9 +29,27 @@ class AdvertisementList extends Component {
         })
     }
 
+    componentDidMount() {
+        console.log('Adv LIST: componentDidMount')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Adv LIST: shouldComponentUpdate')
+        return true
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log('Adv LIST: getDerivedStateFromProps')
+        return null
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Adv LIST: componentDidUpdate')
+    }
+
     render() {
         let { limit, dispHeader } = this.state
-        console.log(limit, dispHeader)
+        console.log('Adv LIST: render')
         return (
             <div>
                 <Setting 
@@ -43,13 +63,8 @@ class AdvertisementList extends Component {
                     title="Top Phones"
                     columns={['name', 'brand', 'price']}
                     limit={limit}
+                    dispHeader={dispHeader}
                 />
-        
-                <Advertisement
-                    datas={phones}
-                    title="Expensive Phones (Default)"
-                    columns={['name', 'brand', 'price']}
-                /> 
             </div>
         );
     }
