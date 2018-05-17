@@ -65,6 +65,13 @@ class AdvertisementList extends Component {
                     limit={limit}
                     dispHeader={dispHeader}
                 />
+                <Advertisement
+                    datas={phones}
+                    title="Top Phones"
+                    columns={['name', 'brand', 'price']}
+                    limit={limit}
+                    dispHeader={dispHeader}
+                />
             </div>
         );
     }
