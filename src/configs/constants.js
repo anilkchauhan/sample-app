@@ -3,3 +3,8 @@ export const Advertisement = Object.freeze({
     INTERVAL: 5000
 })
 
+export const StarWar = Object.freeze({
+    PLANET: 'https://swapi.co/api/planets/',
+    VEHICLE: 'https://swapi.co/api/vehicles/'
+})
+
