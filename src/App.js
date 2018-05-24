@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import User from './pages/User'
 import Product from './pages/Product'
 import StarWar from './pages/StarWar'
+import ContextDemo from './pages/ContextDemo'
 
 import PrivateRoute from './pages/PrivateRoute'
 
@@ -30,6 +31,9 @@ class App extends Component {
               <Link to="/demo">Demo</Link>
             </li>
             <li>
+              <Link to="/context-demo">Context Demo</Link>
+            </li>
+            <li>
               <Link to="/star-war">Star Wars</Link>
             </li>
           </ul>
@@ -40,6 +44,7 @@ class App extends Component {
             <Route path="/products" component={Product} />
             <Route path="/demo" component={Demo} />
             <Route path="/star-war" component={StarWar} />
+            <Route path="/context-demo" component={ContextDemo} />
             <Route path="/test/:id" render={({match: {params}}) => {
               console.log('Testing', params)
               return <h1>TESTING</h1>

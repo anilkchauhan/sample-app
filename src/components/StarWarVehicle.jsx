@@ -12,6 +12,7 @@ export class StarWarVehicleView extends Component {
     }
 }
 
+
 export class StarWarVehicleTitleView extends Component {
     render() {
         let { data } = this.props
