@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 import StarWarVehicle from "components/StarWarVehicle";
 
-import starWarHOC from "HOC/starWar";
-import withProvider from "HOC/withProvider";
+import loaderHOC from "HOC/loaderHOC";
+import withContext from "HOC/withContext";
 
-import { StarWarPlanetView, StarWarPlanetTitleView } from "components/StarWarPlanet"
-import { StarWarVehicleView, StarWarVehicleTitleView } from "components/StarWarVehicle"
+import StarWarPlanetView from "components/StarWarPlanet"
+import StarWarVehicleView from "components/StarWarVehicle"
+
+import StarWarPlanetTitleView from "components/StarWarPlanetTitle"
+import StarWarVehicleTitleView from "components/StarWarVehicleTitle"
 
 import { StarWar as StarWarConfig } from 'configs/constants'
 import ServerError from 'components/ServerError'
 
 import PlanetProvider, {PlanetContext} from 'provider/PlanetProvider'
 import VehicleProvider, {VehicleContext} from 'provider/VehicleProvider'
+StarWarPlanetView
+let PlanetView = withContext(PlanetContext.Consumer)(StarWarPlanetView)
+let PlanetTitleView = withContext(PlanetContext.Consumer)(StarWarPlanetTitleView)
 
-let LoadingPlanetView = starWarHOC(StarWarPlanetView)
-let PlanetView = withProvider(LoadingPlanetView, PlanetContext.Consumer)
-let PlanetTitleView = withProvider(starWarHOC(StarWarPlanetTitleView), PlanetContext.Consumer)
-
-let VehicleView = withProvider(starWarHOC(StarWarVehicleView), VehicleContext.Consumer)
-let VehicleTitleView = withProvider(starWarHOC(StarWarVehicleTitleView, {
-  error: <ServerError />
-}), VehicleContext.Consumer)
+let VehicleView = withContext(VehicleContext.Consumer)(StarWarVehicleView)
+let VehicleTitleView = withContext(VehicleContext.Consumer)(StarWarVehicleTitleView)
 
 
 class StarWar extends Component {
@@ -32,10 +32,12 @@ class StarWar extends Component {
             This is Star War page
             <b>Vehcile</b>
             <VehicleView />
-            <b>Planet</b>
-            <PlanetView />
             <b>Vehcile Title</b>
             <VehicleTitleView />
+            
+            <b>Planet</b>
+            <PlanetView />
+            
             <b>Planet Title</b>
             <PlanetTitleView />
           </PlanetProvider>

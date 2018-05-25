@@ -4,15 +4,14 @@ import Table from './Table'
 
 import loaderHOC from 'HOC/loaderHOC'
 
-export class StarWarVehicleView extends Component {
+export class StarWarVehicleTitleView extends Component {
     render() {
         let { data } = this.props
 
         return (
-            <Table data={data} id="url" columns={['name', 'model', 'manufacturer']}/>
+            <Table data={data} id="url" columns={['name']}/>
         )
     }
 }
 
-export default loaderHOC(StarWarVehicleView)
-
+export default loaderHOC(StarWarVehicleTitleView)
