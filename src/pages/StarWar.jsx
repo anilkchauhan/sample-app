@@ -15,7 +15,7 @@ import ServerError from 'components/ServerError'
 
 import PlanetProvider, {PlanetContext} from 'provider/PlanetProvider'
 import VehicleProvider, {VehicleContext} from 'provider/VehicleProvider'
-StarWarPlanetView
+
 let PlanetView = withContext(PlanetContext.Consumer)(StarWarPlanetView)
 let PlanetTitleView = withContext(PlanetContext.Consumer)(StarWarPlanetTitleView)
 

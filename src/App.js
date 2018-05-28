@@ -6,6 +6,7 @@ import User from './pages/User'
 import Product from './pages/Product'
 import StarWar from './pages/StarWar'
 import ContextDemo from './pages/ContextDemo'
+import Counter from './pages/Counter'
 
 import PrivateRoute from './pages/PrivateRoute'
 
@@ -36,6 +37,9 @@ class App extends Component {
             <li>
               <Link to="/star-war">Star Wars</Link>
             </li>
+            <li>
+              <Link to="/counter-redux">Counter Demo</Link>
+            </li>
           </ul>
           <Switch>
             
@@ -45,6 +49,7 @@ class App extends Component {
             <Route path="/demo" component={Demo} />
             <Route path="/star-war" component={StarWar} />
             <Route path="/context-demo" component={ContextDemo} />
+            <Route path="/counter-redux" component={Counter} />
             <Route path="/test/:id" render={({match: {params}}) => {
               console.log('Testing', params)
               return <h1>TESTING</h1>
