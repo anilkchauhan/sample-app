@@ -2,14 +2,15 @@ import * as types from './types'
 
 let initialState = 0
 let reducer = (state = initialState, action) => {
+    console.log(action)
     switch(action.type) {
         case types.INCREMENT:
             return state + action.number;
         case types.DECREMENT:
             return state - action.number;
+        default:
+            return state
     }
-
-    return state
 }
 
 export default reducer

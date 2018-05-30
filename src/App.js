@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider as ReduxProvider } from 'react-redux'
 
 import Demo from './pages/Demo'
 import Home from './pages/Home'
@@ -11,11 +12,14 @@ import Counter from './pages/Counter'
 import PrivateRoute from './pages/PrivateRoute'
 
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from 'react-router-dom'
+import configureStore from 'state/store'
 
+let store = configureStore()
 class App extends Component {
 
   render() {
     return (
+      <ReduxProvider store={store}>
       <Router>
         <div className="App">
           <ul>
@@ -60,6 +64,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+      </ReduxProvider>
     );
   }
 }

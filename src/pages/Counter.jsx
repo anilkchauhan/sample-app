@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
+import { selectors, operations } from 'state/ducks/counter'
 
 class Counter extends Component {
+    incCounter = (e) => {
+        this.props.incrementCounter(5)
+    }
 
     render() {
-        let { counter, incrementCounter, decrementCounter } = this.props
+        let { counter, decrementCounter } = this.props
         return (
-            <div>
+            <div>incrementCounter
                 Counter: {counter}
                 <div>
-                    <button onClick={incrementCounter} >INC</button>
-                    <button onClick={decrementCounter} >DEC</button>
+                    <button onClick={this.incCounter} >
+                      INC
+                    </button>
+                    <button onClick={() => (decrementCounter())} >DEC</button>
                 </div>
             </div>
         )
     }
 }
 
-export default Counter
+const mapStateToProps = (state, ownProps) => {
+    return {
+        counter: selectors.getCounter(state)
+    }
+}
+
+const mapDispatchToProps = {
+    incrementCounter: operations.incrementCounter,
+    decrementCounter: operations.decrementCounter,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
