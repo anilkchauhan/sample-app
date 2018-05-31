@@ -7,4 +7,3 @@ export const StarWar = Object.freeze({
     PLANET: 'https://swapi.co/api/planets/',
     VEHICLE: 'https://swapi.co/api/vehicles/'
 })
-

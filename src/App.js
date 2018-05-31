@@ -8,6 +8,7 @@ import Product from './pages/Product'
 import StarWar from './pages/StarWar'
 import ContextDemo from './pages/ContextDemo'
 import Counter from './pages/Counter'
+import StarWarRedux from "./pages/StarWarRedux"
 
 import PrivateRoute from './pages/PrivateRoute'
 
@@ -42,6 +43,9 @@ class App extends Component {
               <Link to="/star-war">Star Wars</Link>
             </li>
             <li>
+              <Link to="/starwar-redux">Star War Redux</Link>
+            </li>
+            <li>
               <Link to="/counter-redux">Counter Demo</Link>
             </li>
           </ul>
@@ -53,7 +57,14 @@ class App extends Component {
             <Route path="/demo" component={Demo} />
             <Route path="/star-war" component={StarWar} />
             <Route path="/context-demo" component={ContextDemo} />
-            <Route path="/counter-redux" component={Counter} />
+            <Route path="/starwar-redux" component={StarWarRedux} />
+            <Route path="/counter-redux" render={() => {
+              return (<div>
+                <Counter />
+                <Counter />
+              </div>
+              )
+            }} />
             <Route path="/test/:id" render={({match: {params}}) => {
               console.log('Testing', params)
               return <h1>TESTING</h1>

@@ -2,7 +2,6 @@ import * as types from './types'
 
 let initialState = 0
 let reducer = (state = initialState, action) => {
-    console.log(action)
     switch(action.type) {
         case types.INCREMENT:
             return state + action.number;
