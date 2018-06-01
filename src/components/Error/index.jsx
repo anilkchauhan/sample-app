@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
+import Text from '../Text'
 
 class Error extends Component {
     
     render() {
         
         return (
-            <div>
+            <Text error>
                 Oops, something went wrong.
-            </div>
+            </Text>
         )
     }
 }

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components'
 class Text extends Component {
 
     render() {
-        let { value, onChange } = this.props
+        let { value, onChange, className} = this.props
         return (
-            <input type="text" value={value} onChange={onChange} />
+            <input className={className} type="text" value={value} onChange={onChange} />
         )
     }
 }
 
-export default Text;
+export default styled(Text)`
+font-size: 18px
+`;

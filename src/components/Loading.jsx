@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BiggerBolderText } from './Text'
 
 
 class Loading extends Component {
@@ -6,9 +7,9 @@ class Loading extends Component {
     render() {
         
         return (
-            <div>
+            <BiggerBolderText warning size={20}>
                 Loading....
-            </div>
+            </BiggerBolderText>
         )
     }
 }

@@ -4,6 +4,6 @@ export const Advertisement = Object.freeze({
 })
 
 export const StarWar = Object.freeze({
-    PLANET: 'https://swapi.co/api/planets/',
-    VEHICLE: 'https://swapi.co/api/vehicles/'
+    PLANET: 'https://swapi.com/api/planets/',
+    VEHICLE: 'https://swapi.com/api/vehicles/'
 })
